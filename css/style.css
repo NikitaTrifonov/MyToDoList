@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  background: linear-gradient(to bottom, #71cffa, #f84ca2) no-repeat;
+  background-attachment: scroll; }
+
+.section-inner {
+  max-width: 400px;
+  margin: 0 auto;
+  background: rgba(192, 192, 192, 0.6);
+  border-radius: 25px; }
+
+.section-main {
+  min-height: 100vh; }
+  .section-main .section-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .section-main__title {
+    margin-top: 50px;
+    font-size: 38px; }
+  .section-main-input-box {
+    margin-top: 30px; }
+    .section-main-input-box__input-task {
+      border: none;
+      background-color: #e7e8e9;
+      font-size: 25px;
+      border-radius: 10px;
+      outline: none;
+      margin: 0;
+      opacity: .8;
+      transition: .2s;
+      padding-left: 10px; }
+      .section-main-input-box__input-task:focus {
+        opacity: 1;
+        background-color: #fcfcfc;
+        transform: scale(1.05); }
+    .section-main-input-box .add-task {
+      margin-left: 10px;
+      border: none;
+      outline: none;
+      font-size: 25px;
+      line-height: 25px;
+      border-radius: 15px;
+      background-color: #e7e8e9;
+      color: #6ac8f3;
+      cursor: pointer; }
+      .section-main-input-box .add-task:active {
+        transform: scale(1.1);
+        background-color: #fcfcfc; }
+  .section-main-content {
+    margin-top: 30px;
+    border-top: 1px solid rgba(219, 205, 205, 0.8);
+    width: 90%; }
+    .section-main-content__task-list {
+      margin-top: 30px;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      list-style: none; }
+      .section-main-content__task-list .task {
+        padding: 0 15px 0 15px;
+        display: flex;
+        justify-content: space-around;
+        width: 100%; }
+        .section-main-content__task-list .task__text {
+          padding-left: 10px;
+          width: 80%;
+          font-size: 25px;
+          border-radius: 12px;
+          transition: 0.2s;
+          cursor: pointer; }
+        .section-main-content__task-list .task__del {
+          font-size: 22px;
+          border-radius: 15px;
+          padding: 0 10px;
+          border: none;
+          outline: none;
+          color: #eb54de;
+          transition: 0.2s;
+          cursor: pointer; }
+          .section-main-content__task-list .task__del:hover {
+            opacity: 1;
+            background-color: #fcfcfc;
+            transform: scale(1.1); }
+          .section-main-content__task-list .task__del:active {
+            background-color: #959a9e; }
+        .section-main-content__task-list .task + .task {
+          margin-top: 10px; }
+      .section-main-content__task-list .current .task__text {
+        background-color: #e7e8e9;
+        color: rgba(73, 72, 72, 0.9); }
+        .section-main-content__task-list .current .task__text:hover {
+          opacity: 1;
+          background-color: #fcfcfc;
+          transform: scale(1.05); }
+      .section-main-content__task-list .completed .task__text {
+        background-color: #959a9e;
+        color: rgba(73, 72, 72, 0.9);
+        text-decoration: line-through; }
+        .section-main-content__task-list .completed .task__text:hover {
+          opacity: 1;
+          background-color: #6e6e6e;
+          transform: scale(1.05); }
+    .section-main-content__choice-buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-around; }
+      .section-main-content__choice-buttons button {
+        border: none;
+        outline: none;
+        width: 25%;
+        background-color: #e7e8e9;
+        color: rgba(73, 72, 72, 0.9);
+        font-size: 16px;
+        line-height: 25px;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: 0.2s; }
+        .section-main-content__choice-buttons button:hover {
+          opacity: 1;
+          background-color: #fcfcfc;
+          transform: scale(1.1); }
+        .section-main-content__choice-buttons button:active {
+          background-color: #959a9e; }
+      .section-main-content__choice-buttons .active-task-type {
+        background-color: #959a9e;
+        transform: scale(1.1);
+        cursor: default; }
+        .section-main-content__choice-buttons .active-task-type:hover {
+          background-color: #959a9e; }
