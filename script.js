@@ -1,3 +1,4 @@
+const EMPTY_TASK = "Empty Task!";
 class ToDoList {
 
     constructor(initialTaskList) {
@@ -8,12 +9,12 @@ class ToDoList {
         this.taskListContainer = document.querySelector("ul.section-main-content__task-list");
         this.taskRenderType = "All";
     }
-
+ 
     renderTaskList() {
         this.taskListContainer.innerHTML = "";
         let taskList = this.getTaskByType();
-        let count = 0;
-        taskList.forEach((val) => {
+        // let count = 0;
+        taskList.forEach((val, i) => {
             let classNameTaskState = 'current';
 
             if (val.isCompleted)
@@ -21,7 +22,7 @@ class ToDoList {
 
             this.taskListContainer.innerHTML += `
             <li class="task ${classNameTaskState}" >
-            <span class="task__text" id="${val.taskId}">${++count}. ${val.text}</span>
+            <span class="task__text" id="${val.taskId}">${i + 1}. ${val.text}</span>
             <button class="task__del">-</button>
         </li>
             `
@@ -33,9 +34,9 @@ class ToDoList {
             case "All":
                 return this.taskList;
             case "Current":
-                return this.taskList.filter(item => item.isCompleted === false);
+                return this.taskList.filter(item => !item.isCompleted);
             case "Completed":
-                return this.taskList.filter(item => item.isCompleted === true);
+                return this.taskList.filter(item => item.isCompleted);
         }
     }
 
@@ -64,7 +65,7 @@ class ToDoList {
     }
 
     checkInputTask() {
-        return this.taskInput.value === '' ? 'Empty task!!!' : this.taskInput.value;
+        return this.taskInput.value === "" ? EMPTY_TASK : this.taskInput.value;
     }
 
     createChangeTaskStateListener() {
@@ -96,7 +97,7 @@ class ToDoList {
         this.choiceButtonsContainer.addEventListener("click", (e) => {
             let choiceButtonsClass = e.target.classList[0];
             let newActiveButton = e.target;
-            
+
             switch (choiceButtonsClass) {
                 case "task-all":
                     this.taskRenderType = "All";
